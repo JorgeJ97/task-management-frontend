@@ -2,6 +2,23 @@
 
 Frontend de la aplicación **Task Manager**, desarrollado con **React + Vite**, conectado a un backend en **Node.js/Express/MongoDB** con autenticación mediante **Auth0**.
 
+### Imagenes de la aplicacion:
+
+<p align="center">
+  <img src="./src/assets/landing1.png" alt="Swagger UI 1" width="600"/>
+</p>
+
+<p align="center">
+  <img src="./src/assets/landing2.png" alt="Swagger UI 2" width="600"/>
+</p>
+<p align="center">
+  <img src="./src/assets/dashboard.png" alt="Swagger UI 2" width="600"/>
+</p>
+<p align="center">
+  <img src="./src/assets/stats-mobile.png" alt="Swagger UI 2" width="600"/>
+</p>
+
+---
 ---
 
 ## 🚀 Requisitos previos
