@@ -1,69 +1,91 @@
-# React + TypeScript + Vite
+# Task Manager Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend de la aplicación **Task Manager**, desarrollado con **React + Vite**, conectado a un backend en **Node.js/Express/MongoDB** con autenticación mediante **Auth0**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Requisitos previos
 
-## Expanding the ESLint configuration
+Antes de empezar, asegúrate de tener instalado:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [Node.js](https://nodejs.org/) (>= 18.x recomendado)
+- [npm](https://docs.npmjs.com/) o [pnpm](https://pnpm.io/) (recomendado)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## ⚙️ Instalación
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com/tuusuario/task-manager-frontend.git
+   cd task-manager-frontend
+   ```
+
+2. **Instala las dependencias:**
+   ```bash
+   pnpm install
+   ```
+   > También puedes usar `npm install` o `yarn install`.
+
+3. **Configura las variables de entorno:**
+   Copia el archivo de ejemplo y ajusta los valores según tu entorno:
+   ```bash
+   cp .env.example .env
+   ```
+
+   Archivo `.env.example`:
+   ```env
+   VITE_HOST_API=http://localhost:3000/api
+   VITE_AUTH0_DOMAIN=my-auth0-domain
+   VITE_AUTH0_CLIENT_ID=my-auth0-client-id
+   VITE_AUTH0_AUDIENCE=https://my-api.com
+   ```
+
+---
+
+## 🛠️ Scripts disponibles
+
+- **`pnpm dev`** → Levanta el proyecto en modo desarrollo (por defecto en `http://localhost:5173`).  
+- **`pnpm build`** → Genera una build de producción en la carpeta `dist/`.  
+- **`pnpm preview`** → Sirve la build de producción en local.  
+
+---
+
+## 🌐 Integración con el backend
+
+El frontend consume la API alojada en:
+
+```
+VITE_HOST_API=http://localhost:3000/api
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Para autenticación se utiliza **Auth0**, asegúrate de configurar correctamente las credenciales (`domain`, `client_id` y `audience`) en el dashboard de Auth0.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Estructura del proyecto (simplificada)
+
+```
+.
+├── src/              # Código fuente React (componentes, páginas, hooks, etc.)
+├── public/           # Archivos estáticos
+├── .env.example      # Variables de entorno de ejemplo
+├── package.json
+├── vite.config.ts
+└── README.md
+```
+
+---
+
+## 📌 Notas
+
+- Asegúrate de tener el backend corriendo en `http://localhost:3000` para evitar problemas de CORS.  
+- En producción deberás cambiar `VITE_HOST_API` a la URL de tu API desplegada.  
+- Usa `pnpm build` y despliega la carpeta `dist/` en tu servicio de hosting preferido (Vercel, Netlify, etc.).  
+
+---
+
+## ✨ Autor
+
+Creado por **[Jorge Jimenez]** 🛠️
 ```
